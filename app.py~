@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+from sys import argv
+import datetime
+import urllib
+from bs4 import BeautifulSoup
+import re
+import json
+
+# Help Function
+def Help():
+    print 'Instagram Image Downloader'
+    print '-u [Instagram Handle]'
+    print '-h [help]'
+    print 'Example'
+    print 'python app.py -u @Handle'
+
+# Download File
+# URL -> Downloads an Image in the root folder
+
+def download_file(handle, fileURL):
+    print 'Downloading ' + fileURL
+    f = urllib.urlopen(fileURL)
+    page = f.read()
+    soup = BeautifulSoup(page,'html.parser')
+    metaTag = soup.find_all('meta',attrs={'property':'og:image'})
+    img = metaTag[0]['content']
+    filename = handle[1:]+datetime.datetime.now().strftime("%Y-%b-%d_%H:%M:%S")+'.jpg'
+    urllib.urlretrieve(img,filename)
+    print 'Exiting... Done ... Enjoy ;)'
+
+
+# Takes : Page dictionary
+# Returns : Boolean
+def is_graph_image(d):
+    return "__typename" in d \
+        and d["__typename"] == "GraphImage" \
+        and not d["is_video"]
+
+# Given : Image List
+# Returns : A code
+def parse_images(img_list):
+    codes = []
+    for img in img_list:
+        print("Found one: " + img["code"])
+        codes.append(img["code"])
+    return codes
+
+# Given : Value from a key-value pair
+# Returns : A list of Codes
+def parse_profile_page(prof_page):
+    if "user" in prof_page:
+        prof_page = prof_page["user"] #Destructive Update
+        if "media" in prof_page:
+            prof_page = prof_page["media"]
+            if "nodes" in prof_page:
+                imgs = filter(is_graph_image, prof_page["nodes"])
+                return parse_images(imgs)
+    return []
+        
+# Extract URL from Handle
+# Returns A List
+
+def extract_image_URLs(handle):
+    url = "https://www.instagram.com/"+handle[1:]
+    f = urllib.urlopen(url)
+    page = f.read()
+    soup = BeautifulSoup(page,'html.parser')
+    script = soup.find_all('script')
+    display_src = script[2].text[21:-1].encode("utf-8")
+    profile_data = json.loads(display_src)
+    codes = []
+    for key, val in profile_data["entry_data"].iteritems():
+        if key == "ProfilePage":
+            for item in val:
+                codes += parse_profile_page(item)
+    return map(lambda x: "https://instagram.com/p/"+x, codes)
+
+    
+    
+
+if __name__ == "__main__":
+    if argv[1] == '-u':
+        handle = argv[2]
+        for fileURL in extract_image_URLs(handle):
+            download_file(handle, fileURL)
+        
+    else:
+        Help()

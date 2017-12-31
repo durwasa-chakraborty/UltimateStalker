@@ -9,8 +9,4 @@ Given a handle, you can download the images that appear on the first 12 tiles of
 
 The program uses PhantomJS, coupled with Selenium to create AJAX requests to simulate infinite scrolling.
 
-# Thanks to
-
-- [Neil Locketz](https://github.com/c0d3d)
-
 

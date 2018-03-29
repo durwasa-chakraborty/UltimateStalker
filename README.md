@@ -7,7 +7,6 @@ The Ultimate Stalker helps you Download images from Instagram public repositorie
 ### Scrape URL
 Given a handle, you can download the images that appear on the first 12 tiles of the page. The instagram layout is a 3x4 layout and once you scroll down it requests for more 12 images. This is a typical example of [Lazy Loading](https://en.wikipedia.org/wiki/Lazy_loading).
 
-<<<<<<< HEAD
 The program uses PhantomJS, coupled with Selenium to create AJAX requests.
 
 # Getting Started 
@@ -39,8 +38,7 @@ Please feel free to raise any issue (no matter how trifle it is). Any suggestion
 # Thanks to
 
 - (Neil Locketz)[https://github.com/c0d3d]
-=======
 The program uses PhantomJS, coupled with Selenium to create AJAX requests to simulate infinite scrolling.
->>>>>>> 6384844e6eed7c88735d7602abd42348b53f657e
+
 
 

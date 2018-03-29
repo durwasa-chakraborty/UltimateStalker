@@ -1,5 +1,14 @@
-[INFO  - 2017-12-31T21:19:37.409Z] GhostDriver - Main - running on port 54345
-[INFO  - 2017-12-31T21:19:37.926Z] Session [4e8534f0-ee70-11e7-9779-2fb8d5ee8edf] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2017-12-31T21:19:37.926Z] Session [4e8534f0-ee70-11e7-9779-2fb8d5ee8edf] - page.customHeaders:  - {}
-[INFO  - 2017-12-31T21:19:37.926Z] Session [4e8534f0-ee70-11e7-9779-2fb8d5ee8edf] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2017-12-31T21:19:37.926Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 4e8534f0-ee70-11e7-9779-2fb8d5ee8edf
+[INFO  - 2018-01-09T02:18:21.552Z] GhostDriver - Main - running on port 59679
+[INFO  - 2018-01-09T02:18:21.757Z] Session [5d431380-f4e3-11e7-80ea-33009d44131c] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2018-01-09T02:18:21.757Z] Session [5d431380-f4e3-11e7-80ea-33009d44131c] - page.customHeaders:  - {}
+[INFO  - 2018-01-09T02:18:21.757Z] Session [5d431380-f4e3-11e7-80ea-33009d44131c] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2018-01-09T02:18:21.757Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 5d431380-f4e3-11e7-80ea-33009d44131c
+[INFO  - 2018-01-09T02:23:21.563Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2018-01-09T02:23:21.564Z] SessionManagerReqHand - _cleanupWindowlessSessions - Deleted Session '5d431380-f4e3-11e7-80ea-33009d44131c', because windowless
+events.js:182
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: read EIO
+    at _errnoException (util.js:1041:11)
+    at TTY.onread (net.js:606:25)

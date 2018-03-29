@@ -23,8 +23,8 @@ def download_file(handle, fileURL):
     print 'Downloading ' + fileURL
     f = urllib.urlopen(fileURL)
     page = f.read()
-    soup = BeautifulSoup(page,'html.parser')
-    metaTag = soup.find_all('meta',attrs={'property':'og:image'})
+    soup = BeautifulSoup(page, 'html.parser')
+    metaTag = soup.find_all('meta',attrs = {'property' : 'og:image'})
     img = metaTag[0]['content']
     cwd = os.path.join(os.getcwd(),handle)
     if not os.path.exists(cwd):
@@ -134,5 +134,3 @@ if __name__ == "__main__":
         Help()
     else:
         Help()
-                
-
